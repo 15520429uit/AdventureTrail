@@ -53,7 +53,7 @@ class Scene_Boot extends Phaser.Scene
 	    this.load.spritesheet('hero', 'assets/adventurer.png', { frameWidth: 50, frameHeight: 37 });
 	    this.load.spritesheet('hp_bar', 'assets/hp_bar.png', { frameWidth: 71, frameHeight: 16 });
 		
-	    this.load.atlas('flares', 'http://labs.phaser.io/assets/particles/flares.png', 'http://labs.phaser.io/assets/particles/flares.json');
+	    this.load.atlas('flares', 'assets/fx_flares.png', 'assets/fx_flares.json');
 
 		this.load.audio('snd_jump', 'assets/audio/jump.mp3');
 		this.load.audio('snd_hurt', 'assets/audio/hurt.mp3');
