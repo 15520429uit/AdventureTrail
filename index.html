@@ -1,0 +1,52 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8" />
+    <title>Đồ án chuyên ngành (15520429 - 12520376)</title>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.17.0/dist/phaser.js"></script>
+    <!--<script src="./phaser.min.js"></script>-->
+    <style type="text/css">
+        body 
+        {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="./scr/O_Menu_Button.js"></script>
+    <script src="./scr/O_Enemy.js"></script>
+    <script src="./scr/O_HP_bar.js"></script>
+    <script src="./scr/O_Player.js"></script>
+    <script src="./scr/O_Pickup.js"></script>
+    <script src="./scr/O_Door.js"></script>
+    <script src="./scr/Scene_Boot.js"></script>
+    <script src="./scr/Scene_Menu.js"></script>
+    <script src="./scr/Scene_Level1.js"></script>
+    <script src="./scr/Scene_Level2.js"></script>
+    <script type="text/javascript">
+        var config = {
+            type: Phaser.AUTO,
+            zoom: 4,
+            width: 320,
+            height: 160,
+            pixelArt: true,
+            antialias: false,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 500 },
+                    debug: false,
+                }
+            },
+            scene: [ 
+                Scene_Boot,
+                Scene_Menu,
+                Scene_Level1,
+                Scene_Level2,
+            ],
+        };
+
+        var game = new Phaser.Game(config);
+    </script>
+</body>
+</html>
