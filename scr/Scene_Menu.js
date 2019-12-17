@@ -104,10 +104,10 @@ class Scene_Menu extends Phaser.Scene
             "Control:",
             "Move - Arrow",
             "Select - Z",
-            "Attack - Z",
-            "Jump - X",
+            "Jump - Z",
+            "Attack - X",
             "Slide - C",
-            "Air Jump - X+C" ], { color: 'black', fontSize: 12, align: 'right' }).setOrigin(1, 1));
+            "Air Jump - Z+C" ], { color: 'black', fontSize: 12, align: 'right' }).setOrigin(1, 1));
 
         this.add.text(5, 5, '15520429', { fontSize: '16px', fill: '#f00' });
 
