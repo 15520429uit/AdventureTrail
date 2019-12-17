@@ -19,6 +19,7 @@ class Scene_Menu extends Phaser.Scene
     
     button_hide()
     {
+        this.help_container.visible = 0;
         this.Control = false;
         this.rectangle.y = -100;
         for(var i = 0; i < this.Button.length; i++)
@@ -30,6 +31,7 @@ class Scene_Menu extends Phaser.Scene
 
     button_show()
     {
+        this.help_container.visible = 1;
         this.Selected_Button = 0;
         this.Button[this.Selected_Button].focus();
         for(var i = 0; i < this.Button.length; i++)
@@ -37,7 +39,9 @@ class Scene_Menu extends Phaser.Scene
             this.Button[i].x = -500;
             this.tweens.add({ targets: this.Button[i], x: this.game.config.width * 0.5, ease: 'Power1', duration: 800, delay: 150*i,})
         }
-        this.time.addEvent({ delay: 1000 + 150*this.Button.length, callback: () => { this.Control = true }})
+        this.time.addEvent({ delay: 1000 + 150*this.Button.length, callback: () => { 
+            this.Control = true
+        }})
     }
 
     preload() 
@@ -81,7 +85,6 @@ class Scene_Menu extends Phaser.Scene
         });
 
         this.Button.push(this.button_level1, this.button_level2, this.button_credit);
-        this.button_show();
 
         this.title = this.add.text(this.game.config.width * 0.5, 40, "Adventure Trail", {fontFamily: 'monospace', fontSize: 32, fontStyle: 'bold', color: '#ffffff', align: 'center' }).setOrigin(0.5);
 
@@ -90,6 +93,21 @@ class Scene_Menu extends Phaser.Scene
 
         this.customPipeline = this.game.renderer.getPipeline('Transition' + Phaser.Math.Between(1, 3));
         this.credit_container = this.add.container(0, 0);
+        this.help_container = this.add.container(0, 0);
+
+        // this.help_container.add(this.add.text(10, 150, [
+        //     "In Menu:",
+        //     "Arrow - Navigate",
+        //     "Z - Select" ], { color: 'black'}).setOrigin(0, 1));
+
+        this.help_container.add(this.add.text(315, 150, [
+            "Control:",
+            "Move - Arrow",
+            "Select - Z",
+            "Attack - Z",
+            "Jump - X",
+            "Slide - C",
+            "Air Jump - X+C" ], { color: 'black', fontSize: 12, align: 'right' }).setOrigin(1, 1));
 
         this.add.text(5, 5, '15520429', { fontSize: '16px', fill: '#f00' });
 
@@ -115,6 +133,7 @@ class Scene_Menu extends Phaser.Scene
             "to title", ], { color: 'lime', align: 'right' }).setOrigin(1, 1));
 
         this.credit_container.visible = 0;
+        this.button_show();
     }
 
     update()
